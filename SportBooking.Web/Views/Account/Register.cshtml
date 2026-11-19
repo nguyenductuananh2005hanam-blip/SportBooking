@@ -1,0 +1,146 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+<style>
+    /* Container chứa form */
+    .register-container {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 40px 35px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-top: 30px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+    }
+
+        .register-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .register-container h2 {
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tùy chỉnh ô input */
+        .register-container .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1.5px solid #e2e8f0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .register-container .form-control:focus {
+                border-color: #198754; /* Màu xanh success của Bootstrap */
+                box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15);
+            }
+
+        /* Tùy chỉnh label */
+        .register-container .form-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+            .register-container .form-label i {
+                margin-right: 5px;
+                color: #198754;
+            }
+
+        /* Tùy chỉnh nút submit */
+        .register-container .btn-success {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+            .register-container .btn-success:hover {
+                background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(25, 135, 84, 0.4);
+            }
+
+        /* Tùy chỉnh link đăng nhập */
+        .register-container .login-link {
+            color: #198754;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .register-container .login-link:hover {
+                color: #146c43;
+                text-decoration: underline;
+            }
+</style>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <!-- Thêm col-lg-5 để form gọn hơn trên màn hình lớn -->
+        <div class="register-container">
+            <h2 class="mb-4">Đăng ký tài khoản</h2>
+
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">
+                        <i class="bi bi-person"></i> Họ và tên
+                    </label>
+                    <input asp-for="FullName" class="form-control" autocomplete="name" placeholder="Nhập họ và tên..." />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">
+                        <i class="bi bi-envelope"></i> Email
+                    </label>
+                    <input asp-for="Email" class="form-control" autocomplete="email" placeholder="example@gmail.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Phone" class="form-label">
+                        <i class="bi bi-telephone"></i> Số điện thoại
+                    </label>
+                    <input asp-for="Phone" class="form-control" autocomplete="tel" placeholder="0912345678" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">
+                        <i class="bi bi-lock"></i> Mật khẩu
+                    </label>
+                    <input asp-for="Password" class="form-control" autocomplete="new-password" placeholder="••••••••" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="ConfirmPassword" class="form-label">
+                        <i class="bi bi-check-circle"></i> Xác nhận mật khẩu
+                    </label>
+                    <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="••••••••" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Tạo tài khoản</button>
+            </form>
+
+            <p class="mt-4 text-center text-muted">
+                Đã có tài khoản? <a asp-action="Login" class="login-link">Đăng nhập ngay</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

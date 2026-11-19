@@ -1,0 +1,163 @@
+﻿@model IEnumerable<FieldPricesViewModel>
+@{
+    ViewData["Title"] = "Bảng giá thuê sân";
+    var priceList = Model?.OrderBy(x => x.StartTime).ToList() ?? new List<FieldPricesViewModel>();
+    var fieldId = priceList.FirstOrDefault()?.FieldId;
+}
+
+<style>
+    .price-header {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border-radius: 16px;
+        padding: 28px 32px;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.2);
+        margin-bottom: 28px;
+    }
+
+    .price-card {
+        background: #ffffff;
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+    }
+
+    .price-table thead th {
+        background-color: #f8fafc;
+        color: #4a5568;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+        letter-spacing: 0.5px;
+        padding: 16px 24px;
+        border-bottom: 1.5px solid #e2e8f0;
+    }
+
+    .price-table tbody td {
+        padding: 16px 24px;
+        vertical-align: middle;
+        border-bottom: 1px solid #f1f5f9;
+        color: #2c3e50;
+    }
+
+    .price-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .price-table tbody tr:hover {
+        background-color: #f4fbf7;
+    }
+
+    .time-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #e9f5ef;
+        color: #157347;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.95rem;
+    }
+
+    .price-amount {
+        font-weight: 700;
+        color: #198754;
+        font-size: 1.1rem;
+    }
+
+    .btn-book-now {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        padding: 10px 22px;
+        color: #fff;
+        transition: all 0.25s ease;
+    }
+
+        .btn-book-now:hover {
+            background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(25, 135, 84, 0.35);
+        }
+</style>
+
+<div class="container py-4">
+    <!-- Thanh điều hướng quay lại -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a href="javascript:history.back()" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Quay lại
+        </a>
+
+        @if (fieldId.HasValue)
+        {
+            <a asp-controller="Bookings"
+               asp-action="Create"
+               asp-route-fieldId="@fieldId"
+               class="btn btn-book-now btn-sm">
+                <i class="bi bi-calendar-check me-1"></i> Đặt sân ngay
+            </a>
+        }
+    </div>
+
+    <!-- Header -->
+    <div class="price-header">
+        <h2 class="fw-bold mb-1">
+            <i class="bi bi-tags-fill me-2"></i>Bảng giá theo khung giờ
+        </h2>
+        <p class="mb-0 opacity-75">
+            Giá thuê sân được áp dụng linh hoạt theo từng khung giờ trong ngày
+        </p>
+    </div>
+
+    <!-- Nội dung bảng giá -->
+    @if (!priceList.Any())
+    {
+        <div class="text-center py-5 bg-white rounded-4 shadow-sm">
+            <i class="bi bi-cash-coin text-muted" style="font-size: 3rem;"></i>
+            <h5 class="mt-3 fw-bold text-secondary">Chưa có bảng giá cho sân này</h5>
+            <p class="text-muted mb-0">Vui lòng liên hệ trực tiếp quản lý sân để biết thêm chi tiết.</p>
+        </div>
+    }
+    else
+    {
+        <div class="card price-card">
+            <div class="table-responsive">
+                <table class="table price-table mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">#</th>
+                            <th>Khung giờ</th>
+                            <th>Thời lượng</th>
+                            <th class="text-end">Đơn giá / giờ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < priceList.Count; i++)
+                        {
+                            var item = priceList[i];
+                            <tr>
+                                <td class="fw-semibold text-muted">@(i + 1)</td>
+                                <td>
+                                    <span class="time-badge">
+                                        <i class="bi bi-clock-fill"></i>
+                                        @item.StartTime - @item.EndTime
+                                    </span>
+                                </td>
+                                <td class="text-muted">
+                                    Từ <strong>@item.StartTime</strong> đến <strong>@item.EndTime</strong>
+                                </td>
+                                <td class="text-end">
+                                    <span class="price-amount">@item.Price.ToString("N0") đ</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

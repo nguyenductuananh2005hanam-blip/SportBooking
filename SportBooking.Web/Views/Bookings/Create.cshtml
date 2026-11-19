@@ -1,0 +1,355 @@
+﻿@model CreateBookingViewModel
+@{
+    ViewData["Title"] = "Đặt sân";
+    var todayStr = DateTime.Today.ToString("yyyy-MM-dd");
+}
+
+<style>
+    .booking-header {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border-radius: 16px;
+        padding: 28px 32px;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.2);
+        margin-bottom: 28px;
+    }
+
+    .booking-card {
+        background-color: #ffffff;
+        border: none;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+        .booking-card .form-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.45rem;
+        }
+
+            .booking-card .form-label i {
+                color: #198754;
+                margin-right: 6px;
+            }
+
+        .booking-card .form-control {
+            border-radius: 10px;
+            padding: 11px 14px;
+            border: 1.5px solid #e2e8f0;
+            transition: all 0.25s ease;
+        }
+
+            .booking-card .form-control:focus {
+                border-color: #198754;
+                box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15);
+            }
+
+    .btn-submit-booking {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border: none;
+        border-radius: 10px;
+        padding: 13px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: #fff;
+        transition: all 0.25s ease;
+    }
+
+        .btn-submit-booking:hover {
+            background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(25, 135, 84, 0.35);
+        }
+
+    .slot-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-radius: 12px;
+        background-color: #fff5f5;
+        border: 1px solid #fecaca;
+        margin-bottom: 10px;
+    }
+
+    .slot-time {
+        font-weight: 700;
+        color: #b91c1c;
+        font-size: 0.95rem;
+    }
+
+    .duration-preview {
+        background-color: #e9f5ef;
+        border: 1px dashed #198754;
+        border-radius: 10px;
+        padding: 12px 16px;
+        color: #146c43;
+        font-size: 0.92rem;
+    }
+</style>
+
+<div class="container py-4">
+    <!-- Nút quay lại -->
+    <div class="mb-3">
+        <a href="javascript:history.back()" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Quay lại
+        </a>
+    </div>
+
+    <!-- Banner tiêu đề -->
+    <div class="booking-header">
+        <h2 class="fw-bold mb-1">
+            <i class="bi bi-calendar-plus me-2"></i>Tạo đơn đặt sân
+        </h2>
+        <p class="mb-0 opacity-75">
+            Chọn ngày và khung giờ phù hợp. Hệ thống sẽ tự động kiểm tra lịch trống và tính tổng tiền.
+        </p>
+    </div>
+
+    <div class="row g-4 align-items-start">
+        <!-- Cột trái: Form đặt sân -->
+        <div class="col-lg-7">
+            <div class="booking-card">
+                <h5 class="fw-bold text-dark mb-4">
+                    <i class="bi bi-pencil-square text-success me-2"></i>Thông tin lịch đặt
+                </h5>
+
+                <form asp-action="Create" method="post">
+                    <input type="hidden" asp-for="FieldId" id="FieldId" />
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="BookingDate" class="form-label">
+                            <i class="bi bi-calendar-event"></i> Ngày đặt sân
+                        </label>
+                        <input asp-for="BookingDate"
+                               type="date"
+                               id="BookingDate"
+                               min="@todayStr"
+                               value="@Model.BookingDate.ToString("yyyy-MM-dd")"
+                               class="form-control" />
+                        <span asp-validation-for="BookingDate" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-6">
+                            <label asp-for="StartTime" class="form-label">
+                                <i class="bi bi-clock"></i> Giờ bắt đầu
+                            </label>
+                            <input asp-for="StartTime"
+                                   type="time"
+                                   id="StartTime"
+                                   step="1800"
+                                   value="@(Model.StartTime == default ? "" : Model.StartTime.ToString("HH:mm"))"
+                                   class="form-control" />
+                            <span asp-validation-for="StartTime" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label asp-for="EndTime" class="form-label">
+                                <i class="bi bi-clock-history"></i> Giờ kết thúc
+                            </label>
+                            <input asp-for="EndTime"
+                                   type="time"
+                                   id="EndTime"
+                                   step="1800"
+                                   value="@(Model.EndTime == default ? "" : Model.EndTime.ToString("HH:mm"))"
+                                   class="form-control" />
+                            <span asp-validation-for="EndTime" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <!-- Hiển thị nhanh thời lượng đã chọn -->
+                    <div id="durationPreview" class="duration-preview mb-3 d-none">
+                        <i class="bi bi-stopwatch-fill me-1"></i>
+                        Thời lượng thuê dự kiến: <strong id="durationText"></strong>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Note" class="form-label">
+                            <i class="bi bi-chat-left-text"></i> Ghi chú (tùy chọn)
+                        </label>
+                        <textarea asp-for="Note"
+                                  rows="3"
+                                  class="form-control"
+                                  placeholder="Ví dụ: Cần thuê thêm bóng, áo tập hoặc ghi chú cho chủ sân..."></textarea>
+                        <span asp-validation-for="Note" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit-booking w-100">
+                        <i class="bi bi-check2-circle me-1"></i> Xác nhận đặt sân
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Cột phải: Khung giờ đã có người đặt trong ngày -->
+        <div class="col-lg-5">
+            <div class="booking-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold text-dark mb-0">
+                        <i class="bi bi-clock-fill text-danger me-2"></i>Lịch đã đặt
+                    </h5>
+                    <span id="selectedDateBadge" class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
+                        @Model.BookingDate.ToString("dd/MM/yyyy")
+                    </span>
+                </div>
+
+                <p class="text-muted small mb-3">
+                    Các khung giờ dưới đây đã có khách đặt. Vui lòng chọn khoảng thời gian không trùng lặp.
+                </p>
+
+                <div id="slotsLoading" class="text-center py-4 d-none">
+                    <div class="spinner-border spinner-border-sm text-success" role="status"></div>
+                    <span class="ms-2 text-muted small">Đang tải lịch sân...</span>
+                </div>
+
+                <div id="bookedSlotsContainer">
+                    @if (!Model.BookedSlots.Any())
+                    {
+                        <div class="text-center py-4 bg-light rounded-3">
+                            <i class="bi bi-calendar-check text-success" style="font-size: 2rem;"></i>
+                            <p class="text-success fw-semibold mb-0 mt-2">Cả ngày hiện đang trống!</p>
+                            <small class="text-muted">Bạn có thể thoải mái chọn khung giờ mong muốn.</small>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var slot in Model.BookedSlots)
+                        {
+                            <div class="slot-item">
+                                <span class="slot-time">
+                                    <i class="bi bi-lock-fill me-1"></i>
+                                    @slot.StartAt.ToString("HH:mm") - @slot.EndAt.ToString("HH:mm")
+                                </span>
+                                <span class="badge bg-danger-subtle text-danger rounded-pill">
+                                    Đã đặt
+                                </span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        (function() {
+            const fieldId = document.getElementById('FieldId').value;
+            const dateInput = document.getElementById('BookingDate');
+            const startInput = document.getElementById('StartTime');
+            const endInput = document.getElementById('EndTime');
+            const slotsContainer = document.getElementById('bookedSlotsContainer');
+            const slotsLoading = document.getElementById('slotsLoading');
+            const dateBadge = document.getElementById('selectedDateBadge');
+            const durationPreview = document.getElementById('durationPreview');
+            const durationText = document.getElementById('durationText');
+            const bookedSlotsUrl = '@Url.Action("BookedSlots", "Bookings")';
+
+            // 1. Tự động tải lại danh sách khung giờ đã đặt khi đổi ngày
+            dateInput.addEventListener('change', async function() {
+                const selectedDate = this.value;
+                if (!selectedDate) return;
+
+                // Cập nhật badge ngày hiển thị dạng dd/MM/yyyy
+                const parts = selectedDate.split('-');
+                if (parts.length === 3) {
+                    dateBadge.textContent = `${parts[2]}/${parts[1]}/${parts[0]}`;
+                }
+
+                slotsLoading.classList.remove('d-none');
+                slotsContainer.classList.add('d-none');
+
+                try {
+                    const response = await fetch(`${bookedSlotsUrl}?fieldId=${encodeURIComponent(fieldId)}&date=${encodeURIComponent(selectedDate)}`);
+                    if (!response.ok) throw new Error('Không thể tải dữ liệu');
+
+                    const slots = await response.json();
+                    renderSlots(slots);
+                } catch (err) {
+                    slotsContainer.innerHTML = `
+                                <div class="alert alert-warning small mb-0">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>
+                                    Không thể tải lịch đã đặt. Vui lòng thử lại.
+                                </div>`;
+                } finally {
+                    slotsLoading.classList.add('d-none');
+                    slotsContainer.classList.remove('d-none');
+                }
+            });
+
+            function renderSlots(slots) {
+                slotsContainer.innerHTML = '';
+
+                if (!slots || slots.length === 0) {
+                    slotsContainer.innerHTML = `
+                                <div class="text-center py-4 bg-light rounded-3">
+                                    <i class="bi bi-calendar-check text-success" style="font-size: 2rem;"></i>
+                                    <p class="text-success fw-semibold mb-0 mt-2">Cả ngày hiện đang trống!</p>
+                                    <small class="text-muted">Bạn có thể thoải mái chọn khung giờ mong muốn.</small>
+                                </div>`;
+                    return;
+                }
+
+                slots.forEach(slot => {
+                    const item = document.createElement('div');
+                    item.className = 'slot-item';
+
+                    const timeSpan = document.createElement('span');
+                    timeSpan.className = 'slot-time';
+                    timeSpan.innerHTML = '<i class="bi bi-lock-fill me-1"></i> ';
+                    timeSpan.appendChild(document.createTextNode(`${slot.start} - ${slot.end}`));
+
+                    const badge = document.createElement('span');
+                    badge.className = 'badge bg-danger-subtle text-danger rounded-pill';
+                    badge.textContent = 'Đã đặt';
+
+                    item.appendChild(timeSpan);
+                    item.appendChild(badge);
+                    slotsContainer.appendChild(item);
+                });
+            }
+
+            // 2. Tính và hiển thị nhanh thời lượng đặt sân
+            function updateDuration() {
+                if (!startInput.value || !endInput.value) {
+                    durationPreview.classList.add('d-none');
+                    return;
+                }
+
+                const [sh, sm] = startInput.value.split(':').map(Number);
+                const [eh, em] = endInput.value.split(':').map(Number);
+                const diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
+
+                if (diffMinutes <= 0) {
+                    durationPreview.classList.remove('d-none');
+                    durationText.textContent = 'Giờ kết thúc phải lớn hơn giờ bắt đầu';
+                    durationPreview.classList.replace('duration-preview', 'alert');
+                    durationPreview.classList.add('alert-warning', 'py-2', 'small');
+                    return;
+                }
+
+                durationPreview.className = 'duration-preview mb-3';
+                const hours = Math.floor(diffMinutes / 60);
+                const mins = diffMinutes % 60;
+                const label = [
+                    hours > 0 ? `${hours} giờ` : '',
+                    mins > 0 ? `${mins} phút` : ''
+                ].filter(Boolean).join(' ');
+
+                durationText.textContent = label;
+            }
+
+            startInput.addEventListener('change', updateDuration);
+            endInput.addEventListener('change', updateDuration);
+            updateDuration();
+        })();
+    </script>
+}

@@ -1,0 +1,120 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập tài khoản";
+}
+<style>
+    /* Container chứa form */
+    .Login-container {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 40px 35px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-top: 30px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+    }
+
+    .Login-container:hover {
+            transform: translateY(-5px);
+        }
+
+    .Login-container h2 {
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tùy chỉnh ô input */
+    .Login-container .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1.5px solid #e2e8f0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+    .Login-container .form-control:focus {
+                border-color: #198754; /* Màu xanh success của Bootstrap */
+                box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.15);
+            }
+
+    .Login-container .form-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+            .register-container .form-label i {
+                margin-right: 5px;
+                color: #198754;
+            }
+
+    .Login-container .btn-success {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+    .Login-container .btn-success:hover {
+                background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(25, 135, 84, 0.4);
+            }
+
+    .Login-container .register-link {
+            color: #198754;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .Login-container .register-link:hover {
+                color: #146c43;
+                text-decoration: underline;
+            }
+</style>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <!-- Thêm col-lg-5 để form gọn hơn trên màn hình lớn -->
+        <div class="Login-container">
+            <h2 class="mb-4">Đăng nhập</h2>
+
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+               
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">
+                        <i class="bi bi-envelope"></i> Email
+                    </label>
+                    <input asp-for="Email" class="form-control" autocomplete="email" placeholder="example@gmail.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">
+                        <i class="bi bi-lock"></i> Mật khẩu
+                    </label>
+                    <input asp-for="Password" class="form-control" type="password" placeholder="••••••••" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
+            </form>
+
+            <p class="mt-4 text-center text-muted">
+                Đã chưa có tài khoản? <a asp-action="Register" class="register-link">Đăng kí ngay</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

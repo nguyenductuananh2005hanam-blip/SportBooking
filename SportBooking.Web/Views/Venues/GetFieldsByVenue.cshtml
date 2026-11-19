@@ -1,0 +1,170 @@
+﻿@model List<FieldsViewModel>
+@{
+    var venueName = Model.FirstOrDefault()?.VenueName ?? ViewBag.VenueName ?? "Danh sách sân con";
+    ViewData["Title"] = venueName;
+}
+
+<style>
+    .venue-detail-banner {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border-radius: 16px;
+        padding: 28px 32px;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.2);
+        margin-bottom: 28px;
+    }
+
+    .field-card {
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+        .field-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+
+    .field-img-wrap {
+        position: relative;
+        height: 190px;
+        background-color: #e9f5ef;
+        overflow: hidden;
+    }
+
+        .field-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+    .field-card:hover .field-img-wrap img {
+        transform: scale(1.05);
+    }
+
+    .field-img-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #198754;
+        font-size: 2.8rem;
+        opacity: 0.5;
+    }
+
+    .field-type-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(25, 135, 84, 0.92);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .btn-book {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        padding: 10px 16px;
+        color: #fff;
+        transition: all 0.25s ease;
+    }
+
+        .btn-book:hover {
+            background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+            color: #fff;
+        }
+</style>
+
+<div class="container py-4">
+    <!-- Nút quay lại -->
+    <div class="mb-3">
+        <a asp-action="Index" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Quay lại danh sách cụm sân
+        </a>
+    </div>
+
+    <!-- Banner tên cụm sân -->
+    <div class="venue-detail-banner">
+        <h2 class="fw-bold mb-1">@venueName</h2>
+        <p class="mb-0 opacity-75">
+            Hiện có <strong>@Model.Count</strong> sân con đang hoạt động
+        </p>
+    </div>
+
+    <!-- Danh sách sân con -->
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5 bg-white rounded-4 shadow-sm">
+            <i class="bi bi-calendar-x text-muted" style="font-size: 3rem;"></i>
+            <h5 class="mt-3 fw-bold text-secondary">Cụm sân hiện chưa có sân con nào</h5>
+            <p class="text-muted mb-0">Vui lòng quay lại sau hoặc chọn cụm sân khác.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var field in Model)
+            {
+                <div class="col">
+                    <div class="card field-card h-100">
+                        <div class="field-img-wrap">
+                            @if (!string.IsNullOrWhiteSpace(field.ImageUrl))
+                            {
+                                string filePath = $@"~/uploads/{field.ImageUrl}";
+                                <img src="@Url.Content(filePath)" alt="@field.FieldName" loading="lazy" />
+                            }
+                            else
+                            {
+                                <div class="field-img-placeholder">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                            }
+                            <span class="field-type-badge">@field.FieldType</span>
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="fw-bold text-dark mb-0">@field.FieldName</h5>
+                                @if (field.isActive)
+                                {
+                                    <span class="badge bg-success-subtle text-success rounded-pill">
+                                        <i class="bi bi-check-circle-fill me-1"></i>Sẵn sàng
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary-subtle text-secondary rounded-pill">
+                                        Tạm ngưng
+                                    </span>
+                                }
+                            </div>
+
+                            <p class="text-muted small mb-4">
+                                <i class="bi bi-building me-1 text-success"></i>@field.VenueName
+                            </p>
+
+                            <div class="mt-auto">
+                                <a asp-controller="Fields"
+                                   asp-action="Index"
+                                   asp-route-Id="@field.id"
+                                   class="btn btn-book w-100 @(field.isActive ? "" : "disabled")">
+                                    <i class="bi bi-calendar-check me-1"></i> Chi tiết lịch
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

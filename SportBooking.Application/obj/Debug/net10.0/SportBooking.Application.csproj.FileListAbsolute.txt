@@ -1,0 +1,15 @@
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\bin\Debug\net10.0\SportBooking.Application.deps.json
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\bin\Debug\net10.0\SportBooking.Application.dll
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\bin\Debug\net10.0\SportBooking.Application.pdb
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.AssemblyInfoInputs.cache
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.AssemblyInfo.cs
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.csproj.CoreCompileInputs.cache
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.dll
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\refint\SportBooking.Application.dll
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.pdb
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\ref\SportBooking.Application.dll
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBoo.13BC7460.Up2Date
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\bin\Debug\net10.0\SportBooking.Domain.dll
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\bin\Debug\net10.0\SportBooking.Domain.pdb
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Application\obj\Debug\net10.0\SportBooking.Application.csproj.AssemblyReference.cache
