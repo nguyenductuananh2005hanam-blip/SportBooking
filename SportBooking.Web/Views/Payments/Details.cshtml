@@ -1,0 +1,73 @@
+﻿@model SportBooking.Application.Payments.Dtos.PaymentDto
+@using System.Globalization
+@using SportBooking.Domain.Enums
+
+@{
+    ViewData["Title"] = "Chi tiết thanh toán";
+    var vi = new CultureInfo("vi-VN");
+
+    var (statusText, statusClass) = Model.Status switch
+    {
+        PaymentStatus.Pending => ("Chờ thanh toán", "bg-warning text-dark"),
+        PaymentStatus.Paid    => ("Đã thanh toán", "bg-success"),
+        _                     => (Model.Status.ToString(), "bg-secondary")
+    };
+}
+
+<div class="container my-4" style="max-width: 700px;">
+    <h2 class="mb-4">Chi tiết thanh toán</h2>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span class="fw-semibold">Thanh toán #@Model.Id</span>
+            <span class="badge @statusClass">@statusText</span>
+        </div>
+
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-5">Mã đơn đặt sân</dt>
+                <dd class="col-sm-7">#@Model.BookingId</dd>
+
+                <dt class="col-sm-5">Cụm sân</dt>
+                <dd class="col-sm-7">@Model.VenueName</dd>
+
+                <dt class="col-sm-5">Sân</dt>
+                <dd class="col-sm-7">@Model.FieldName</dd>
+
+                <dt class="col-sm-5">Ngày</dt>
+                <dd class="col-sm-7">@Model.StartAt.ToString("dd/MM/yyyy", vi)</dd>
+
+                <dt class="col-sm-5">Giờ</dt>
+                <dd class="col-sm-7">@Model.StartAt.ToString("HH:mm") - @Model.EndAt.ToString("HH:mm")</dd>
+
+                <dt class="col-sm-5">Phương thức</dt>
+                <dd class="col-sm-7">@Model.Method</dd>
+
+                <dt class="col-sm-5">Thời điểm thanh toán</dt>
+                <dd class="col-sm-7">
+                    @if (Model.PaidAt is { } paidAt)
+                    {
+                        @paidAt.ToString("HH:mm dd/MM/yyyy", vi)
+                    }
+                    else
+                    {
+                        <span class="text-muted">Chưa thanh toán</span>
+                    }
+                </dd>
+            </dl>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <span class="fw-semibold">Số tiền</span>
+            <span class="fs-5 fw-bold text-danger">@Model.Amount.ToString("N0", vi) ₫</span>
+        </div>
+    </div>
+
+    <div class="d-flex gap-2 mt-3">
+        @if (Model.Status == PaymentStatus.Pending)
+        {
+            <a asp-action="Checkout" asp-route-bookingId="@Model.BookingId" class="btn btn-outline-primary">Đổi phương thức</a>
+        }
+        <a asp-controller="Bookings" asp-action="MyBookings" class="btn btn-secondary">Đơn đặt sân của tôi</a>
+    </div>
+</div>

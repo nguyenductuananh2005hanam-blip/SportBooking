@@ -17,5 +17,7 @@ namespace SportBooking.Domain.Entities
 
         public User Owner { get; set; } = null!;
         public ICollection<Field> Fields { get; set; } = new List<Field>();
+
+        public ICollection<VenuePaymentAccount> PaymentAccounts { get; set; } = new List<VenuePaymentAccount>();
     }
 }

@@ -164,9 +164,14 @@ namespace SportBooking.Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int?>("VenuePaymentAccountId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BookingId");
+
+                    b.HasIndex("VenuePaymentAccountId");
 
                     b.ToTable("Payments");
                 });
@@ -259,6 +264,63 @@ namespace SportBooking.Infrastructure.Migrations
                     b.ToTable("Venues");
                 });
 
+            modelBuilder.Entity("SportBooking.Domain.Entities.VenuePaymentAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccountName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("BankBin")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("QrImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("VenueId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VenueId")
+                        .IsUnique()
+                        .HasDatabaseName("UX_VenuePaymentAccounts_DefaultPerVenue")
+                        .HasFilter("[IsDefault] = 1");
+
+                    b.HasIndex("VenueId", "AccountNumber")
+                        .IsUnique();
+
+                    b.ToTable("VenuePaymentAccounts", (string)null);
+                });
+
             modelBuilder.Entity("SportBooking.Domain.Entities.Booking", b =>
                 {
                     b.HasOne("SportBooking.Domain.Entities.Field", "Field")
@@ -308,6 +370,10 @@ namespace SportBooking.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SportBooking.Domain.Entities.VenuePaymentAccount", null)
+                        .WithMany("Payments")
+                        .HasForeignKey("VenuePaymentAccountId");
+
                     b.Navigation("Booking");
                 });
 
@@ -320,6 +386,17 @@ namespace SportBooking.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("SportBooking.Domain.Entities.VenuePaymentAccount", b =>
+                {
+                    b.HasOne("SportBooking.Domain.Entities.Venue", "Venue")
+                        .WithMany("PaymentAccounts")
+                        .HasForeignKey("VenueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Venue");
                 });
 
             modelBuilder.Entity("SportBooking.Domain.Entities.Booking", b =>
@@ -344,6 +421,13 @@ namespace SportBooking.Infrastructure.Migrations
             modelBuilder.Entity("SportBooking.Domain.Entities.Venue", b =>
                 {
                     b.Navigation("Fields");
+
+                    b.Navigation("PaymentAccounts");
+                });
+
+            modelBuilder.Entity("SportBooking.Domain.Entities.VenuePaymentAccount", b =>
+                {
+                    b.Navigation("Payments");
                 });
 #pragma warning restore 612, 618
         }

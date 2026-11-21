@@ -13,5 +13,7 @@ namespace SportBooking.Application.Auth
 
         Task ChangePasswordAsync(int userId, string currentPassword, string newPassword,
         CancellationToken ct = default);
+
+        Task<UserDto?> Profile(int userId, CancellationToken ct = default);
     }
 }

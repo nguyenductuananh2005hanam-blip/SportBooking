@@ -1,0 +1,325 @@
+﻿@model BookingItemViewModel
+@using Microsoft.AspNetCore.Http
+@using SportBooking.Domain.Enums
+@{
+    ViewData["Title"] = $"Chi tiết đơn đặt sân #{Model.Id}";
+
+    var isAdmin = string.Equals(
+        Context.Session.GetString("UserRole"),
+        UserRole.Admin.ToString(),
+        StringComparison.OrdinalIgnoreCase);
+
+    var duration = Model.EndAt - Model.StartAt;
+    var hours = (int)duration.TotalHours;
+    var minutes = duration.Minutes;
+    var durationText = string.Join(" ", new[]
+    {
+        hours > 0 ? $"{hours} giờ" : "",
+        minutes > 0 ? $"{minutes} phút" : ""
+    }.Where(x => !string.IsNullOrEmpty(x)));
+
+    var canCancel = Model.Status != BookingStatus.Cancelled
+                    && Model.Status != BookingStatus.Completed
+                    && (isAdmin || Model.StartAt > DateTime.Now);
+
+    var (statusLabel, statusClass, statusIcon) = Model.Status switch
+    {
+        BookingStatus.Pending => ("Chờ xác nhận", "bg-warning text-dark", "bi-hourglass-split"),
+        BookingStatus.Confirmed => ("Đã xác nhận", "bg-primary text-white", "bi-check-circle-fill"),
+        BookingStatus.Completed => ("Hoàn thành", "bg-success text-white", "bi-trophy-fill"),
+        BookingStatus.Cancelled => ("Đã hủy", "bg-danger text-white", "bi-x-circle-fill"),
+        _ => (Model.Status.ToString(), "bg-secondary text-white", "bi-info-circle")
+    };
+}
+
+<style>
+    .detail-header {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border-radius: 16px;
+        padding: 28px 32px;
+        color: #fff;
+        box-shadow: 0 8px 24px rgba(25, 135, 84, 0.2);
+        margin-bottom: 24px;
+    }
+
+    .detail-card {
+        background: #ffffff;
+        border: none;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-weight: 700;
+        color: #2c3e50;
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+        border-bottom: 1.5px solid #f1f5f9;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .section-title i {
+            color: #198754;
+        }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 10px 0;
+        border-bottom: 1px dashed #e9ecef;
+    }
+
+        .info-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+    .info-label {
+        color: #64748b;
+        font-size: 0.94rem;
+        flex-shrink: 0;
+    }
+
+    .info-value {
+        color: #1e293b;
+        font-weight: 600;
+        text-align: right;
+    }
+
+    .time-highlight {
+        background-color: #e9f5ef;
+        border-radius: 12px;
+        padding: 16px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .price-box {
+        background: #f4fbf7;
+        border: 1.5px solid #c3e6cb;
+        border-radius: 12px;
+        padding: 18px 20px;
+        text-align: center;
+    }
+
+    .price-total {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #198754;
+    }
+
+    .note-box {
+        background-color: #f8fafc;
+        border-left: 4px solid #198754;
+        border-radius: 8px;
+        padding: 12px 16px;
+        color: #475569;
+        font-size: 0.95rem;
+    }
+
+    .btn-update-status {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+        .btn-update-status:hover {
+            background: linear-gradient(135deg, #157347 0%, #1ba87e 100%);
+            color: #fff;
+        }
+</style>
+
+<div class="container py-4">
+    <!-- Thanh điều hướng -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-action="GetBookingHistoried" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+            <i class="bi bi-arrow-left me-1"></i> Danh sách đơn đặt sân
+        </a>
+        <a asp-controller="Venues" asp-action="Index" class="btn btn-outline-success btn-sm rounded-pill px-3">
+            <i class="bi bi-plus-circle me-1"></i> Đặt thêm sân khác
+        </a>
+    </div>
+
+    <!-- Thông báo kết quả -->
+    @if (TempData["Success"] is string successMsg)
+    {
+        <div class="alert alert-success alert-dismissible fade show rounded-3 shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@successMsg
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Error"] is string errorMsg)
+    {
+        <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@errorMsg
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Banner đơn đặt sân -->
+    <div class="detail-header">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+                <div class="small opacity-75 mb-1">
+                    <i class="bi bi-receipt me-1"></i>Mã đơn đặt sân
+                </div>
+                <h2 class="fw-bold mb-1">Đơn #@Model.Id</h2>
+                <div class="small opacity-75">
+                    Ngày tạo: @Model.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+            <div>
+                <span class="badge @statusClass rounded-pill px-4 py-2 fs-6 shadow-sm">
+                    <i class="bi @statusIcon me-1"></i>@statusLabel
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Cột trái: Thông tin sân & lịch đặt -->
+        <div class="col-lg-8">
+            <div class="detail-card">
+                <div class="section-title">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <span>Thông tin lịch thuê sân</span>
+                </div>
+
+                <!-- Highlight ngày giờ -->
+                <div class="time-highlight">
+                    <div>
+                        <small class="text-muted d-block">Ngày đá</small>
+                        <strong class="fs-5 text-dark">
+                            <i class="bi bi-calendar-event text-success me-1"></i>
+                            @Model.StartAt.ToString("dd/MM/yyyy")
+                        </strong>
+                    </div>
+                    <div>
+                        <small class="text-muted d-block">Khung giờ</small>
+                        <strong class="fs-5 text-success">
+                            <i class="bi bi-clock-fill me-1"></i>
+                            @Model.StartAt.ToString("HH:mm") - @Model.EndAt.ToString("HH:mm")
+                        </strong>
+                    </div>
+                    <div>
+                        <small class="text-muted d-block">Thời lượng</small>
+                        <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
+                            @durationText
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Thông tin cụm sân & sân con -->
+                <div class="info-row">
+                    <span class="info-label"><i class="bi bi-building me-1 text-success"></i>Cụm sân</span>
+                    <span class="info-value">@Model.VenueName</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="bi bi-grid-fill me-1 text-success"></i>Sân con</span>
+                    <span class="info-value">@Model.FieldName</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="bi bi-geo-alt-fill me-1 text-success"></i>Địa chỉ</span>
+                    <span class="info-value">@Model.VenueAddress</span>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(Model.Note))
+                {
+                    <div class="mt-4">
+                        <small class="text-muted fw-semibold d-block mb-2">
+                            <i class="bi bi-chat-left-text me-1 text-success"></i>Ghi chú của khách hàng
+                        </small>
+                        <div class="note-box">@Model.Note</div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Cột phải: Thông tin khách, Tổng tiền & Hành động -->
+        <div class="col-lg-4">
+            <!-- Tổng chi phí -->
+            <div class="detail-card">
+                <div class="section-title">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Chi phí thuê sân</span>
+                </div>
+
+                <div class="price-box mb-3">
+                    <small class="text-muted d-block mb-1">Tổng tiền thanh toán</small>
+                    <div class="price-total">@Model.TotalPrice.ToString("N0") đ</div>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label"><i class="bi bi-person-fill me-1 text-success"></i>Người đặt</span>
+                    <span class="info-value">@Model.UserName</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="bi bi-telephone-fill me-1 text-success"></i>Số điện thoại</span>
+                    <span class="info-value">@Model.UserPhone</span>
+                </div>
+            </div>
+
+            <!-- Thao tác quản lý -->
+            @if (canCancel || (isAdmin && Model.Status != BookingStatus.Cancelled))
+            {
+                <div class="detail-card">
+                    <div class="section-title">
+                        <i class="bi bi-sliders"></i>
+                        <span>Thao tác</span>
+                    </div>
+
+                    <div class="">
+                        <a asp-controller="Payments" asp-action="Checkout" asp-route-bookingId="@Model.Id" class="btn btn-primary" style="width:100%;">
+                           <i class="bi bi-wallet"></i>
+                           Đặt sân</a>
+                    </div><br />
+                    @if (isAdmin && Model.Status != BookingStatus.Cancelled)
+                    {
+                        <form asp-action="UpdateStatus" method="post" class="mb-3">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <label for="statusSelect" class="form-label small fw-semibold text-muted">
+                                Cập nhật trạng thái (Admin)
+                            </label>
+                            <div class="d-flex gap-2">
+                                <select id="statusSelect" name="status" class="form-select form-select-sm">
+                                    @foreach (BookingStatus st in Enum.GetValues(typeof(BookingStatus)))
+                                    {
+                                        <option value="@st" selected="@(st == Model.Status)">@st</option>
+                                    }
+                                </select>
+                                <button type="submit" class="btn btn-update-status btn-sm px-3 flex-shrink-0">
+                                    Lưu
+                                </button>
+                            </div>
+                        </form>
+                    }
+                    
+                    @if (canCancel)
+                    {
+                        <form asp-action="Cancel"
+                              asp-route-id="@Model.Id"
+                              method="post"
+                              onsubmit="return confirm('Bạn có chắc chắn muốn hủy đơn đặt sân #@Model.Id không?');">
+                            <button type="submit" class="btn btn-outline-danger w-100 rounded-3 fw-semibold">
+                                <i class="bi bi-x-circle me-1"></i> Hủy đơn đặt sân
+                            </button>
+                        </form>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -6,8 +6,8 @@
         public string Name { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
-        public TimeOnly OpenTime { get; set; }   // Đổi thành TimeSpan nếu Entity/DTO dùng TimeSpan
-        public TimeOnly CloseTime { get; set; }  // Đổi thành TimeSpan nếu Entity/DTO dùng TimeSpan
+        public TimeOnly OpenTime { get; set; }   
+        public TimeOnly CloseTime { get; set; } 
         public int FieldCount { get; set; }
         public decimal? MinPrice { get; set; }
         public string? ImageUrl { get; set; }

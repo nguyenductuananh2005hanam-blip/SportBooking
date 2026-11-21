@@ -18,6 +18,8 @@ namespace SportBooking.Infrastructure.Data
         public DbSet<FieldPrice> FieldPrices { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
+        public DbSet<VenuePaymentAccount> VenuePayment { get; set; }
+
         protected override void OnModelCreating(ModelBuilder b)
         {
             base.OnModelCreating(b);
@@ -105,6 +107,35 @@ namespace SportBooking.Infrastructure.Data
                  .HasForeignKey(x => x.BookingId)
                  .OnDelete(DeleteBehavior.Restrict);
             });
+
+            b.Entity<VenuePaymentAccount>(e =>
+            {
+                e.ToTable("VenuePaymentAccounts");
+
+                e.HasKey(x => x.Id);
+
+                e.Property(x => x.BankBin).HasMaxLength(10).IsRequired();
+                e.Property(x => x.BankName).HasMaxLength(100).IsRequired();
+                e.Property(x => x.AccountNumber).HasMaxLength(30).IsRequired();
+                e.Property(x => x.AccountName).HasMaxLength(100).IsRequired();
+                e.Property(x => x.QrImageUrl).HasMaxLength(500);
+
+                // Khóa ngoại: VenueId -> Venues.Id
+                e.HasOne(x => x.Venue)
+                 .WithMany(v => v.PaymentAccounts)
+                 .HasForeignKey(x => x.VenueId)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+                // Một venue không có hai tài khoản trùng số
+                e.HasIndex(x => new { x.VenueId, x.AccountNumber }).IsUnique();
+
+                // Mỗi venue chỉ có 1 tài khoản mặc định (SQL Server filtered index)
+                e.HasIndex(x => x.VenueId)
+                 .IsUnique()
+                 .HasFilter("[IsDefault] = 1")
+                 .HasDatabaseName("UX_VenuePaymentAccounts_DefaultPerVenue");
+            });
+
         }
     }
 }

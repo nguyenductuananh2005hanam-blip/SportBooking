@@ -9,6 +9,7 @@ namespace SportBooking.Application.Auth.Dtos
         string Fullname,
         string Email,
         string PhoneNumber,
+        DateTime CreatedAt,
         string Role
         );
     

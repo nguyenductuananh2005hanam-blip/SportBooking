@@ -1,0 +1,77 @@
+﻿@model SportBooking.Web.Models.PaymentViewModel
+@using System.Globalization
+@using SportBooking.Domain.Enums
+
+@{
+    ViewData["Title"] = "Thanh toán đơn đặt sân";
+    var vi = new CultureInfo("vi-VN");
+    var methods = Html.GetEnumSelectList<PaymentMethod>();
+}
+
+<div class="container my-4" style="max-width: 900px;">
+    <h2 class="mb-4">Thanh toán đơn đặt sân</h2>
+
+    <div class="row g-4">
+        <!-- Tóm tắt đơn đặt sân -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header fw-semibold">Thông tin đặt sân</div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-5">Cụm sân</dt>
+                        <dd class="col-7">@Model.VenueName</dd>
+
+                        <dt class="col-5">Sân</dt>
+                        <dd class="col-7">@Model.FieldName</dd>
+
+                        <dt class="col-5">Ngày</dt>
+                        <dd class="col-7">@Model.StartAt.ToString("dd/MM/yyyy", vi)</dd>
+
+                        <dt class="col-5">Giờ</dt>
+                        <dd class="col-7">@Model.StartAt.ToString("HH:mm") - @Model.EndAt.ToString("HH:mm")</dd>
+                    </dl>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <span class="fw-semibold">Tổng tiền</span>
+                    <span class="fs-5 fw-bold text-danger">@Model.Amount.ToString("N0", vi) ₫</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chọn phương thức thanh toán -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header fw-semibold">Phương thức thanh toán</div>
+                <div class="card-body">
+                    <form asp-action="Checkout" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <input type="hidden" asp-for="BookingId" />
+
+                        @foreach (var item in methods)
+                        {
+                            var id = $"method_{item.Value}";
+                            var isChecked = Model.Method is { } m && ((int)m).ToString() == item.Value;
+
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio"
+                                       name="Method" id="@id" value="@item.Value" checked="@isChecked" />
+                                <label class="form-check-label" for="@id">@item.Text</label>
+                            </div>
+                        }
+                        <span asp-validation-for="Method" class="text-danger d-block mb-3"></span>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+                            <a asp-controller="Bookings" asp-action="GetBookingHistoried" class="btn btn-outline-secondary">Quay lại</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

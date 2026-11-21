@@ -16,6 +16,8 @@ namespace SportBooking.Application.Common.Interfaces
         DbSet<Booking> Bookings { get; }
         DbSet<Payment> Payments { get; }
 
+        DbSet<VenuePaymentAccount> VenuePayment { get; }
+
         /// <summary>
         /// Dùng để mở transaction, ví dụ khi kiểm tra trùng giờ và tạo đơn đặt sân
         /// (Database.BeginTransactionAsync(IsolationLevel.Serializable)).

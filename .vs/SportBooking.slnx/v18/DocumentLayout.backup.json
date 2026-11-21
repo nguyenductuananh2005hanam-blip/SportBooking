@@ -1,0 +1,544 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Ki_7\\Clean Architecture\\SportBooking\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\bookings\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\payments\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\payments\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\bookings\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\bookings\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\models\\createbookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\models\\createbookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\entities\\venuepaymentaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\entities\\venuepaymentaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\models\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\models\\paymentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\payments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\payments\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\bookings\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\bookings\\bookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\bookings\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\bookings\\ibookingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\payments\\dtos\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\payments\\dtos\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\payments\\dtos\\createpaymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\payments\\dtos\\createpaymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\payments\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\payments\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\payments\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\payments\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\bookings\\getbookinghistoried.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\bookings\\getbookinghistoried.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\entities\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\entities\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\paymentaccounts\\ipaymentaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\paymentaccounts\\ipaymentaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.domain\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52CD605E-4F88-8D18-2BCA-C1493A9BC8C6}|SportBooking.Domain\\SportBooking.Domain.csproj|solutionrelative:sportbooking.domain\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\venues\\venueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\venues\\venueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\sportbooking.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\sportbooking.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\common\\interfaces\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\common\\interfaces\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.application\\bookings\\dtos\\bookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8762044A-F02A-74E2-C22C-91B28574F294}|SportBooking.Application\\SportBooking.Application.csproj|solutionrelative:sportbooking.application\\bookings\\dtos\\bookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|d:\\ki_7\\clean architecture\\sportbooking\\sportbooking.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A30424B3-4EFE-DF9B-132C-72A609DDD4F5}|SportBooking.Web\\SportBooking.Web.csproj|solutionrelative:sportbooking.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 214,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f53-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Enums\\UserRole.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-21T08:58:28.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Program.cs",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Program.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Program.cs",
+              "RelativeToolTip": "SportBooking.Web\\Program.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-21T08:39:20.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADsBAAAAAAAAAAAAAE0BAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-20T03:32:17.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Payments\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Payments\\Checkout.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Payments\\Checkout.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Payments\\Checkout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAACIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-20T16:58:59.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\Details.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Bookings\\Details.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\Details.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Bookings\\Details.cshtml",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAkwBwBAACVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T06:43:03.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentsController.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Controllers\\PaymentsController.cs",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Controllers\\PaymentsController.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Controllers\\PaymentsController.cs",
+              "RelativeToolTip": "SportBooking.Web\\Controllers\\PaymentsController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAYwF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:52:16.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Payments\\Details.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Payments\\Details.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Payments\\Details.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Payments\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T08:00:21.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PaymentViewModel.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Models\\PaymentViewModel.cs",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Models\\PaymentViewModel.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Models\\PaymentViewModel.cs",
+              "RelativeToolTip": "SportBooking.Web\\Models\\PaymentViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvwoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:49:52.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BookingService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\BookingService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Bookings\\BookingService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\BookingService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Bookings\\BookingService.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAH8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T00:33:46.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IBookingService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\IBookingService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Bookings\\IBookingService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\IBookingService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Bookings\\IBookingService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADgvwwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T12:54:52.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreatePaymentDto.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\Dtos\\CreatePaymentDto.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Payments\\Dtos\\CreatePaymentDto.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\Dtos\\CreatePaymentDto.cs",
+              "RelativeToolTip": "SportBooking.Application\\Payments\\Dtos\\CreatePaymentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-21T06:00:49.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VenuesController.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Controllers\\VenuesController.cs",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Controllers\\VenuesController.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Controllers\\VenuesController.cs",
+              "RelativeToolTip": "SportBooking.Web\\Controllers\\VenuesController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:24:23.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateBookingViewModel.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Models\\CreateBookingViewModel.cs",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Models\\CreateBookingViewModel.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Models\\CreateBookingViewModel.cs",
+              "RelativeToolTip": "SportBooking.Web\\Models\\CreateBookingViewModel.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T00:40:44.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PaymentDto.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\Dtos\\PaymentDto.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Payments\\Dtos\\PaymentDto.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\Dtos\\PaymentDto.cs",
+              "RelativeToolTip": "SportBooking.Application\\Payments\\Dtos\\PaymentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T14:52:35.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\PaymentService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Payments\\PaymentService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\PaymentService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Payments\\PaymentService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAqwDYAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T14:51:47.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Payments\\IPaymentService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Payments\\IPaymentService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Payments\\IPaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T14:51:27.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GetBookingHistoried.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\GetBookingHistoried.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Bookings\\GetBookingHistoried.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\GetBookingHistoried.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Bookings\\GetBookingHistoried.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-20T13:09:34.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Venue.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Venue.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Entities\\Venue.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Venue.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Entities\\Venue.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T14:48:06.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Payment.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Entities\\Payment.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Payment.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Entities\\Payment.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T14:48:03.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VenuePaymentAccount.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\VenuePaymentAccount.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Entities\\VenuePaymentAccount.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\VenuePaymentAccount.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Entities\\VenuePaymentAccount.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:03:58.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IPaymentAccountService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\PaymentAccounts\\IPaymentAccountService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\PaymentAccounts\\IPaymentAccountService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\PaymentAccounts\\IPaymentAccountService.cs",
+              "RelativeToolTip": "SportBooking.Application\\PaymentAccounts\\IPaymentAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:29:59.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Users.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Entities\\Users.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Users.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Entities\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T04:10:10.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Booking.cs",
+              "RelativeDocumentMoniker": "SportBooking.Domain\\Entities\\Booking.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Domain\\Entities\\Booking.cs",
+              "RelativeToolTip": "SportBooking.Domain\\Entities\\Booking.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T12:48:33.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VenueService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Venues\\VenueService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Venues\\VenueService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Venues\\VenueService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Venues\\VenueService.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:36:19.435Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SportBooking.Application.csproj",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\SportBooking.Application.csproj",
+              "RelativeDocumentMoniker": "SportBooking.Application\\SportBooking.Application.csproj",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\SportBooking.Application.csproj",
+              "RelativeToolTip": "SportBooking.Application\\SportBooking.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-20T16:29:17.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Common\\Interfaces\\IApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Common\\Interfaces\\IApplicationDbContext.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Common\\Interfaces\\IApplicationDbContext.cs",
+              "RelativeToolTip": "SportBooking.Application\\Common\\Interfaces\\IApplicationDbContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T16:14:45.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\Create.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Bookings\\Create.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Bookings\\Create.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Bookings\\Create.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAANIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-20T00:35:03.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "SportBooking.Web\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Web\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "SportBooking.Web\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-20T04:20:20.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Auth\\AuthService.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Auth\\AuthService.cs",
+              "RelativeToolTip": "SportBooking.Application\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAA8wGUAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T03:44:22.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BookingDto.cs",
+              "DocumentMoniker": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\Dtos\\BookingDto.cs",
+              "RelativeDocumentMoniker": "SportBooking.Application\\Bookings\\Dtos\\BookingDto.cs",
+              "ToolTip": "D:\\Ki_7\\Clean Architecture\\SportBooking\\SportBooking.Application\\Bookings\\Dtos\\BookingDto.cs",
+              "RelativeToolTip": "SportBooking.Application\\Bookings\\Dtos\\BookingDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwA4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T00:33:36.547Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

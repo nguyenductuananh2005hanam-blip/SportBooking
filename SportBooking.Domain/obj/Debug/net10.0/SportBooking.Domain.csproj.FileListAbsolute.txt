@@ -10,3 +10,4 @@ D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Domain\obj\Debug\net10.0\re
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Domain\obj\Debug\net10.0\SportBooking.Domain.pdb
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Domain\obj\Debug\net10.0\ref\SportBooking.Domain.dll
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Domain\obj\Debug\net10.0\SportBoo.B80F89AB.Up2Date
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Domain\obj\Debug\net10.0\SportBooking.Domain.sourcelink.json

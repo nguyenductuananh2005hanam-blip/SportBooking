@@ -61,7 +61,20 @@ namespace SportBooking.Web.Controllers
                 return View(model);
             }
         }
+        public async Task<IActionResult> Profile(int id, ProfileViewModel model)
+        {
+            var profile = await _authService.Profile(id);
+            var modelview = new ProfileViewModel
+            {
+                Id = profile.Id,
+                FullName = profile.Fullname,
+                Email = profile.Email,
+                Phone = profile.PhoneNumber,
+                Ngaytao = profile.CreatedAt.ToString("dd/MM/yyyy")
+            };
 
+            return View(modelview);
+        }
         public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Clear();

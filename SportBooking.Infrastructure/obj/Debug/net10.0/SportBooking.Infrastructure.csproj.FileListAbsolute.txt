@@ -17,3 +17,4 @@ D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Infrastructure\obj\Debug\ne
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Infrastructure\obj\Debug\net10.0\ref\SportBooking.Infrastructure.dll
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Infrastructure\bin\Debug\net10.0\SportBooking.Application.dll
 D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Infrastructure\bin\Debug\net10.0\SportBooking.Application.pdb
+D:\Ki_7\Clean Architecture\SportBooking\SportBooking.Infrastructure\obj\Debug\net10.0\SportBooking.Infrastructure.sourcelink.json

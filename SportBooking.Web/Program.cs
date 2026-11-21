@@ -7,6 +7,8 @@ using SportBooking.Infrastructure.Data;
 using SportBooking.Infrastructure.Services;
 using SportBooking.Application.Fields;
 using SportBooking.Application.Bookings;
+using SportBooking.Domain.Entities;
+using SportBooking.Application.Payments;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,7 @@ builder.Services.AddScoped<IImageStorageService>(provider =>
 builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<IFieldService, FieldService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 // ----- Đăng nhập bằng cookie (cần cho Login, [Authorize]) -----
 builder.Services

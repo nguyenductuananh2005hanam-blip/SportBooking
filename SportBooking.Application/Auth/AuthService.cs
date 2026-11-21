@@ -65,6 +65,7 @@ namespace SportBooking.Application.Auth
                 Email = email,
                 Phone = phone,
                 PasswordHash = _passhash.Hash(dto.Password),
+                CreatedAt = DateTime.UtcNow,
                 Role = UserRole.Customer        
             };
 
@@ -98,6 +99,15 @@ namespace SportBooking.Application.Auth
 
             return ToDto(user);
         }
-        private static UserDto ToDto(User u) => new(u.Id, u.FullName, u.Email, u.Phone, u.Role.ToString());
+        private static UserDto ToDto(User u) => new(u.Id, u.FullName, u.Email, u.Phone, u.CreatedAt, u.Role.ToString());
+
+        public async Task<UserDto?> Profile(int userId, CancellationToken ct = default)
+        {
+            var userprofile = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (userprofile == null) throw new NotFoundException($"Không tìm thấy tài khoản id #{userId} ");
+
+            return ToDto(userprofile);
+        }
     }
 }

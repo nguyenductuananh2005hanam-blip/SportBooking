@@ -12,7 +12,7 @@ namespace SportBooking.Application.Bookings
 {
     public class BookingService : IBookingService
     {
-        private readonly IApplicationDbContext _ctx; // Đổi thành tên DbContext / Interface của bạn
+        private readonly IApplicationDbContext _ctx; 
 
         public BookingService(IApplicationDbContext ctx)
         {
@@ -237,8 +237,8 @@ namespace SportBooking.Application.Bookings
             }
 
             // Đảm bảo toàn bộ thời gian khách đặt đều đã được cấu hình đơn giá
-            if (Math.Abs(coveredMinutes - requestedMinutes) > 0.1)
-                throw new BusinessException("Một phần khung giờ bạn chọn chưa được cấu hình đơn giá thuê sân");
+            //if (Math.Abs(coveredMinutes - requestedMinutes) > 0.1)
+            //    throw new BusinessException("Một phần khung giờ bạn chọn chưa được cấu hình đơn giá thuê sân");
 
             return Math.Round(totalPrice, 0);
         }

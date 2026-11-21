@@ -169,11 +169,9 @@ namespace SportBooking.Web.Controllers
             return RedirectToAction(nameof(Details), new { id });
         }
 
-        // --- Helpers ---
         private IActionResult RedirectToLogin()
         {
             TempData["Error"] = "Vui lòng đăng nhập để sử dụng chức năng đặt sân.";
-            // Đổi "Account" thành tên Controller chứa action Login của bạn (ví dụ "Auth")
             return RedirectToAction("Login", "Account");
         }
 
@@ -206,5 +204,28 @@ namespace SportBooking.Web.Controllers
             Note = dto.Note,
             CreatedAt = dto.CreatedAt
         };
+
+        public async Task<IActionResult> GetBookingHistoried(CancellationToken ct)
+        {
+            if (CurrentUserId == null)
+            {
+                TempData["Errorr"] = "Vui lòng đăng nhập.";
+                return RedirectToAction("Login", "Account");
+            }
+            var historied = await _bookingService.GetMyBookingsAsync(CurrentUserId.Value, ct);
+
+            var viewmodel = historied.Select(f => new BookingHistoriedViewModel
+            {
+                Id = f.Id,
+                FieldName = f.FieldName,
+                StartAt = f.StartAt,
+                EndAt = f.EndAt,
+                TotalPrice = f.TotalPrice,
+                Status = f.Status,
+                Note = f.Note,
+                CreatedAt = f.CreatedAt.ToString("dd/MM/yyyy")
+            });
+            return View(viewmodel);
+        }
     }
 }
